@@ -2,6 +2,7 @@ import resolve from '@rollup/plugin-node-resolve';
 import commonjs from '@rollup/plugin-commonjs';
 import babel from '@rollup/plugin-babel';
 import { terser } from "rollup-plugin-terser";
+import css from "rollup-plugin-import-css";
 
 import livereload from 'rollup-plugin-livereload';
 import serve from 'rollup-plugin-serve';
@@ -17,6 +18,7 @@ const plugins = [
 	}),
 	resolve(), // so Rollup can find `ms`
 	commonjs(),
+	css(),
 	isProduction && terser(),
 	!isProduction && serve(),
 	!isProduction && livereload({
