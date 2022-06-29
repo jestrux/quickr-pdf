@@ -1,10 +1,10 @@
-export default function companyDetails(details) {
+export default function companyDetails(details, t) {
   return {
     type: "Section",
     content: {
       header: {
         title: {
-          en: "Company details",
+          en: t('company-details'),
         },
       },
       body: [
@@ -15,7 +15,7 @@ export default function companyDetails(details) {
               type: "Column",
               content: {
                 label: {
-                  en: "Business name",
+                  en: t('business-name'),
                 },
                 value: {
                   en: details.companyName,
@@ -26,7 +26,7 @@ export default function companyDetails(details) {
               type: "Column",
               content: {
                 label: {
-                  en: "Organization number",
+                  en: t('organisation-number'),
                 },
                 value: {
                   en: details.organizationNumber,
@@ -42,7 +42,7 @@ export default function companyDetails(details) {
               type: "Column",
               content: {
                 label: {
-                  en: "Business trading name",
+                  en: t('business-trading-name'),
                 },
                 value: {
                   en: details.commercialInformation.tradingName,
@@ -53,7 +53,7 @@ export default function companyDetails(details) {
               type: "Column",
               content: {
                 label: {
-                  en: "Business trading address",
+                  en: t('business-trading-address'),
                 },
                 value: {
                   en: details.postalAddress.streetAddress,
@@ -69,7 +69,7 @@ export default function companyDetails(details) {
               type: "Column",
               content: {
                 label: {
-                  en: "Post code",
+                  en: t('post-code'),
                 },
                 value: {
                   en: details.postalAddress.postalCode,
@@ -80,7 +80,7 @@ export default function companyDetails(details) {
               type: "Column",
               content: {
                 label: {
-                  en: "City",
+                  en: t('city'),
                 },
                 value: {
                   en: details.postalAddress.city,

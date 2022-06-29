@@ -15,6 +15,7 @@
     "last 1 Chrome version"
   ],
   "dependencies": {
+    "i18next": "^21.8.11",
     "preact": "^10.5.7",
     "preact-render-to-string": "^5.2.0"
   },

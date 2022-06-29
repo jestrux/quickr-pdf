@@ -1,13 +1,13 @@
-export default function termsOfServiceDetails(details) {
+export default function termsOfServiceDetails(details, t) {
   return {
     type: "Section",
     content: {
       header: {
         title: {
-          en: "Terms of service",
+          en: t('terms-of-service'),
         },
         subtitle: {
-          en: "I have read and agreed to the following Supplier terms as listed below",
+          en: t('i-have-read-and-accept'),
         },
       },
       body: [
@@ -16,10 +16,10 @@ export default function termsOfServiceDetails(details) {
           content: {
             header: [
               {
-                en: "Terms of service",
+                en: t('agreement'),
               },
               {
-                en: "Description",
+                en: t('url'),
               },
             ],
             body: [

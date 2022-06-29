@@ -1,10 +1,10 @@
-export default function bankAccountDetails(details) {
+export default function bankAccountDetails(details, t) {
   return {
     type: "Section",
     content: {
       header: {
         title: {
-          en: "Bank account details",
+          en: t('bank-account-details'),
         },
       },
       body: [
@@ -15,7 +15,7 @@ export default function bankAccountDetails(details) {
               type: "Column",
               content: {
                 label: {
-                  en: "Business bank provider",
+                  en: t('business-bank-provider'),
                 },
                 value: {
                   en: details.bankAccount.bankName,
@@ -26,7 +26,7 @@ export default function bankAccountDetails(details) {
               type: "Column",
               content: {
                 label: {
-                  en: "Bank account number",
+                  en: t('bank-account-number'),
                 },
                 value: {
                   en: details.bankAccount.bankAccountNumber,

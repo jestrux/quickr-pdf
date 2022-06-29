@@ -1,19 +1,24 @@
-export default function purposeOfPaymentDetails(details) {
+import { getCurrentCurrency } from "./utils";
+
+export default function purposeOfPaymentDetails(details, t) {
+  const lessThan = t('less-than');
+  const moreThan = t('more-than');
+
   const averageTransactionValueOptions = {
-    "l-100": "Less than 100",
+    "l-100": lessThan + " 100",
     "101-300": "101 - 300",
     "301-600": "301 - 600",
     "601-1000": "601 - 1000",
     "1001-2000": "1001 - 2000",
-    "g-2000": "More than 2000",
+    "g-2000": moreThan + " 2000",
   };
-
+  
   const annualturnoverOptions = {
     "0-50.000": "0 - 50.000",
     "50.001-500.000": "50.001 - 500.000",
     "500.001-1.000.000": "500.001 - 1.000.000",
     "1.000.001-5.000.000": "1.000.001 - 5.000.000",
-    "g-5.000.000": "More than 5.000.000",
+    "g-5.000.000": moreThan + " 5.000.000",
   };
 
   const giftCardPercentage = details.commercialInformation.giftcards
@@ -22,7 +27,7 @@ export default function purposeOfPaymentDetails(details) {
           type: "Column",
           content: {
             label: {
-              en: "What % of total revenue is gift cards?",
+              en: t('giftcards-revenue-percent'),
             },
             value: {
               en: details.commercialInformation.giftcardsPercentage + "%",
@@ -38,7 +43,7 @@ export default function purposeOfPaymentDetails(details) {
           type: "Column",
           content: {
             label: {
-              en: "What % of total revenue is subscriptions?",
+              en: t('subscriptions-revenue-percent'),
             },
             value: {
               en: details.commercialInformation.subscriptionsPercentage + "%",
@@ -54,10 +59,10 @@ export default function purposeOfPaymentDetails(details) {
           type: "Column",
           content: {
             label: {
-              en: "Do you pay taxes internationally?",
+              en: t('do-you-pay-taxes-internationally'),
             },
             value: {
-              en: details.commercialInformation.internationalTax ? "Yes" : "No",
+              en: details.commercialInformation.internationalTax ? t('yes') : t('no'),
             },
           },
         },
@@ -69,7 +74,7 @@ export default function purposeOfPaymentDetails(details) {
     content: {
       header: {
         title: {
-          en: "Purpose of payment details",
+          en: t('purpose-of-payment-details'),
         },
       },
       body: [
@@ -80,10 +85,10 @@ export default function purposeOfPaymentDetails(details) {
               type: "Column",
               content: {
                 label: {
-                  en: "Do you offer gift cards to your customers?",
+                  en: t('do-you-offer-giftcards'),
                 },
                 value: {
-                  en: details.commercialInformation.giftcards ? "Yes" : "No",
+                  en: details.commercialInformation.giftcards ? t('yes') : t('no'),
                 },
               },
             },
@@ -97,12 +102,12 @@ export default function purposeOfPaymentDetails(details) {
               type: "Column",
               content: {
                 label: {
-                  en: "Do you offer subscriptions to your customers?",
+                  en: t('do-you-offer-subscriptions'),
                 },
                 value: {
                   en: details.commercialInformation.subscriptions
-                    ? "Yes"
-                    : "No",
+                    ? t('yes')
+                    : t('no'),
                 },
               },
             },
@@ -116,13 +121,13 @@ export default function purposeOfPaymentDetails(details) {
               type: "Column",
               content: {
                 label: {
-                  en: "Average transaction value",
+                  en: t('average-transaction-value', {currency: getCurrentCurrency()}),
                 },
                 value: {
                   en:
                     averageTransactionValueOptions[
                       details.commercialInformation.averageTransactionValue
-                    ] + " NOK",
+                    ] + " " + getCurrentCurrency(),
                 },
               },
             },
@@ -130,13 +135,13 @@ export default function purposeOfPaymentDetails(details) {
               type: "Column",
               content: {
                 label: {
-                  en: "Projected 12 month sales",
+                  en: t('projected-sales', {currency: getCurrentCurrency()}),
                 },
                 value: {
                   en:
                     annualturnoverOptions[
                       details.commercialInformation.annualturnover
-                    ] + " NOK",
+                    ] + " " + getCurrentCurrency(),
                 },
               },
             },
@@ -144,13 +149,13 @@ export default function purposeOfPaymentDetails(details) {
               type: "Column",
               content: {
                 label: {
-                  en: "Your most expensive product",
+                  en: t('most-expensive-product', {currency: getCurrentCurrency()}),
                 },
                 value: {
                   en:
                     Number(
                       details.commercialInformation.mostExpensiveProduct
-                    ).toLocaleString() + " NOK",
+                    ).toLocaleString() + " " + getCurrentCurrency(),
                 },
               },
             },
@@ -163,12 +168,12 @@ export default function purposeOfPaymentDetails(details) {
               type: "Column",
               content: {
                 label: {
-                  en: "Will you sell internationally?",
+                  en: t('will-you-sell-internationally'),
                 },
                 value: {
                   en: details.commercialInformation.internationalSales
-                    ? "Yes"
-                    : "No",
+                    ? t('yes')
+                    : t('no')
                 },
               },
             },

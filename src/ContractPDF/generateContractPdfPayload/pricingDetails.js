@@ -1,12 +1,12 @@
-import numberWithCommas from "./numberWithCommas";
+import { numberWithCommas } from "./utils";
 
-export default function pricingDetails(details) {
+export default function pricingDetails(details, t) {
   return {
     type: "Section",
     content: {
       header: {
         title: {
-          en: "Pricing",
+          en: t('pricing'),
         },
       },
       body: [
@@ -15,13 +15,13 @@ export default function pricingDetails(details) {
           content: {
             header: [
               {
-                en: "Product name",
+                en: t('product-name'),
               },
               {
-                en: "Description",
+                en: t('description'),
               },
               {
-                en: "Price",
+                en: t('price'),
               },
             ],
             body: [

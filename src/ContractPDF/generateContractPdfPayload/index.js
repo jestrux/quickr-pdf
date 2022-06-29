@@ -1,3 +1,4 @@
+import { customDescription } from "./utils";
 import bankAccountDetails from "./bankAccountDetials";
 import companyDetails from "./companyDetails";
 import companyManagementAndSignatoryRules from "./companyManagementAndSignatoryRules";
@@ -8,19 +9,26 @@ import requiredDocumentationAndAttachments from "./requiredDocumentationAndAttac
 import termsOfServiceDetails from "./termsOfServiceDetails";
 import ultimateBeneficialOwnershipDetails from "./ultimateBeneficialOwnershipDetails";
 
-export const customDescription = `Please confirm that the following information is accurate. Dintero
-pre-fills some information from a variety of public sources, but it
-is your responsibility to verify the information in this sign-up
-form is true and timely. Please update any details where necessary.
-In order to meet regulatory requirements and to provide you with the
-best service possible, we need the following information to know the
-intent and nature of your business. Should have any questions,
-please let us know please via onboarding@dintero.com.
-`;
+import i18n from "i18next";
+import { englishTranslation, swedishTranslation, norwegianTranslation } from "./translations";
 
-export default function generateContractPdfPayload(details) {
+const i18stance = i18n.createInstance();
+
+export default function generateContractPdfPayload(details, lng = "en") {
+  console.log("Translator language: ", lng);
+
+  i18stance.init({
+    resources: {
+      en: { translation: englishTranslation },
+      se: { translation: swedishTranslation },
+      no: { translation: norwegianTranslation },
+    },
+    lng,
+    fallbackLng: "en"
+  });
+
   const introDescription =
-    details?.companyProfile?.description || customDescription;
+    details?.companyProfile?.description || customDescription(lng);
   const logo = details?.companyProfile?.logo;
 
   return [
@@ -34,16 +42,16 @@ export default function generateContractPdfPayload(details) {
         en: introDescription,
       },
     },
-    companyDetails(details),
-    bankAccountDetails(details),
-    purposeOfPaymentDetails(details),
+    companyDetails(details, i18stance.t),
+    bankAccountDetails(details, i18stance.t),
+    purposeOfPaymentDetails(details, i18stance.t),
     ...(details.shareholders?.length > 0
-      ? [ultimateBeneficialOwnershipDetails(details)]
+      ? [ultimateBeneficialOwnershipDetails(details, i18stance.t)]
       : []),
-    companyManagementAndSignatoryRules(details),
-    requiredDocumentationAndAttachments(details),
-    pepDetails(details),
-    ...(details?.pricing?.length > 0 ? [pricingDetails(details)] : []),
-    ...(details?.terms?.length > 0 ? [termsOfServiceDetails(details)] : []),
+    companyManagementAndSignatoryRules(details, i18stance.t),
+    requiredDocumentationAndAttachments(details, i18stance.t),
+    pepDetails(details, i18stance.t),
+    ...(details?.pricing?.length > 0 ? [pricingDetails(details, i18stance.t)] : []),
+    ...(details?.terms?.length > 0 ? [termsOfServiceDetails(details, i18stance.t)] : []),
   ];
 }

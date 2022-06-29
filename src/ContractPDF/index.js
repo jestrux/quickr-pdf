@@ -2,8 +2,8 @@ import { h } from 'preact';
 import generateContractPdfPayload from "./generateContractPdfPayload";
 import Section from "./Section";
 
-function ContractPDF({ contract }) {
-	const data = generateContractPdfPayload(contract);
+function ContractPDF({ contract, lang }) {
+	const data = generateContractPdfPayload(contract, lang);
 
 	const themeColorSet =
 		contract?.companyProfile?.color?.length &&

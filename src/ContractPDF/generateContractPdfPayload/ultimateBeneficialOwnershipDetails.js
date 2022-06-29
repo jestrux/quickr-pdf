@@ -1,13 +1,13 @@
-export default function ultimateBeneficialOwnershipDetails(details) {
+export default function ultimateBeneficialOwnershipDetails(details, t) {
   return {
     type: "Section",
     content: {
       header: {
         title: {
-          en: "Ultimate benefical ownership details",
+          en: t('ultimate-beneficial-ownership.title'),
         },
         subtitle: {
-          en: "Complete list of all known ultimate beneficial owners of the company that owns 25% shares or more.",
+          en: t('ultimate-beneficial-ownership.description'),
         },
       },
       body: [
@@ -16,13 +16,13 @@ export default function ultimateBeneficialOwnershipDetails(details) {
           content: {
             header: [
               {
-                en: "Name of ultimate owner",
+                en: t('name-of-ultimate-owner'),
               },
               {
-                en: "Ownership stake in %",
+                en: t('ownership-stake'),
               },
               {
-                en: "Date of birth (DD/MM/YYYY)",
+                en: t('date-of-birth'),
               },
             ],
             body: [
@@ -43,10 +43,10 @@ export default function ultimateBeneficialOwnershipDetails(details) {
               type: "Column",
               content: {
                 label: {
-                  en: "Are there other factors influencing control of the company?",
+                  en: t('other-company-control-factors'),
                 },
                 value: {
-                  en: details.declaration.influencingFactors ? "Yes" : "No",
+                  en: details.declaration.influencingFactors ? t('yes') : t('no'),
                 },
               },
             },
@@ -70,12 +70,12 @@ export default function ultimateBeneficialOwnershipDetails(details) {
               type: "Column",
               content: {
                 label: {
-                  en: "I have confirmed that the company ownership is correct and up to date.",
+                  en: t('ownership-confirmation'),
                 },
                 value: {
                   en: details.declaration.ownershipChanged
-                    ? "Tenant confirmed"
-                    : "Pending confirmation",
+                    ? t('tenant-confirmed')
+                    : t('pending-confirmation'),
                 },
               },
             },

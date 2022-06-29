@@ -1,13 +1,13 @@
-export default function pepDetails(details) {
+export default function pepDetails(details, t) {
   return {
     type: "Section",
     content: {
       header: {
         title: {
-          en: "Politically exposed persons",
+          en: t('pep-details.title'),
         },
         subtitle: {
-          en: "Declaration if any immediate or affiliated persons of the company are considered to be a politically exposed persons (PEP):",
+          en: t('pep-details.description'),
         },
       },
       body: [
@@ -18,10 +18,10 @@ export default function pepDetails(details) {
               type: "Column",
               content: {
                 label: {
-                  en: "Are you, any manager or owner considered to be PEP?",
+                  en: t('are-you-a-pep'),
                 },
                 value: {
-                  en: details.declaration.isPEP ? "Yes" : "No",
+                  en: details.declaration.isPEP ? t('yes') : t('no'),
                 },
               },
             },
@@ -29,10 +29,10 @@ export default function pepDetails(details) {
               type: "Column",
               content: {
                 label: {
-                  en: "Are you or any owner affiliated with a known PEP?",
+                  en: t('are-you-affiliated-with-a-pep'),
                 },
                 value: {
-                  en: details.declaration.isAffiliatedPEP ? "Yes" : "No",
+                  en: details.declaration.isAffiliatedPEP ? t('yes') : t('no'),
                 },
               },
             },

@@ -51,7 +51,7 @@ const SectionWrapper = ({
   children,
 }) => {
   return (
-    <div className="border-t-[3px] border-primary pt-8 pb-4">
+    <div className="border-t-3 border-primary pt-8 pb-4">
       <div className="col-span-4">
         <h2 className="mb-0.5 text-2xl font-semibold">{title}</h2>
 

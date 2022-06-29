@@ -1,10 +1,10 @@
-export default function requiredDocumentationAndAttachments(details) {
+export default function requiredDocumentationAndAttachments(details, t) {
 	return {
 		type: "Section",
 		content: {
 			header: {
 				title: {
-					en: "Required documentation and attachments",
+					en: t('required-documents.title'),
 				},
 			},
 			body: !details.attachments?.length
@@ -16,7 +16,7 @@ export default function requiredDocumentationAndAttachments(details) {
 									type: "Column",
 									content: {
 										label: {
-											en: "No attachments added.",
+											en: t('required-documents.empty-state'),
 										},
 										value: {
 											en: " ",
@@ -34,7 +34,7 @@ export default function requiredDocumentationAndAttachments(details) {
 									type: "Column",
 									content: {
 										label: {
-											en: `Attachment ${i + 1}`,
+											en: `${t('attachment')} ${i + 1}`,
 										},
 										value: {
 											en: attachment,

@@ -10,8 +10,10 @@
 	<body>
 		<div class="p-8 text-left" id="pdf"></div>
 
-		<script src="../dist/umd/contract-pdf.js"></script>
-		<script>
+		<!-- <script src="../dist/umd/contract-pdf.js"></script> -->
+		<script type="module">
+			import ContractPdf from "../dist/es/index.js";
+
 			const contractDetails = {
 				bankAccount: {
 					bankName: "Tilier",
@@ -126,7 +128,6 @@
 
 			const html = ContractPdf(contractDetails);
 			document.querySelector("#pdf").innerHTML = html;
-			console.log("Html on the frontend: ", html);
 		</script>
 	</body>
 </html>

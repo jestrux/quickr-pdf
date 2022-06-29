@@ -5,8 +5,8 @@ import "./main.css";
 
 /** @jsx h */
 
-function QuickrPdf(contract) {
-	return renderString(<ContractPDF contract={contract} />);
+function QuickrPdf(contract, lang) {
+	return renderString(<ContractPDF contract={contract} lang={lang} />);
 }
 
 export default QuickrPdf;
