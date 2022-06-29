@@ -32,15 +32,20 @@ const plugins = [
 ];
 
 function output(file, dir){
-	if(dir)
-		return [
-			{ dir: "dist/cjs/", format: 'cjs' },
-			{ dir: "dist/es/", format: 'es' }
-		];
+	// if(dir)
+	// 	return [
+	// 		{ dir: "dist/cjs/", format: 'cjs' },
+	// 		{ dir: "dist/es/", format: 'es' }
+	// 	];
+
+	// return [
+	// 	{ file: "dist/cjs/"+file, format: 'cjs' },
+	// 	{ file: "dist/es/"+file, format: 'es' }
+	// ];
 
 	return [
-		{ file: "dist/cjs/"+file, format: 'cjs' },
-		{ file: "dist/es/"+file, format: 'es' }
+		{ file: "dist/cjs/index.js", format: 'cjs' },
+		{ file: "dist/es/index.js", format: 'es' }
 	];
 };
 
