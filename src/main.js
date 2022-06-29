@@ -1,9 +1,12 @@
-import { h, render } from 'preact';
-import ContractPDF from './ContractPDF';
-import './main.css';
+import { h, render } from "preact";
+import renderString from "preact-render-to-string";
+import ContractPDF from "./ContractPDF";
+import "./main.css";
 
-function QuickrPdf(containerId, contract){
-    render(<ContractPDF contract={contract} />, document.querySelector(containerId));
+/** @jsx h */
+
+function QuickrPdf(contract) {
+	return renderString(<ContractPDF contract={contract} />);
 }
 
 export default QuickrPdf;

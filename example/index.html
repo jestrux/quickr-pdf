@@ -124,7 +124,9 @@
 				pricing: [],
 			};
 
-			new ContractPdf("#pdf", contractDetails);
+			const html = ContractPdf(contractDetails);
+			document.querySelector("#pdf").innerHTML = html;
+			console.log("Html on the frontend: ", html);
 		</script>
 	</body>
 </html>
