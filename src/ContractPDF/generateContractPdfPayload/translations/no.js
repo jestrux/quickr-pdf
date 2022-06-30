@@ -73,7 +73,7 @@ export default {
 	"description": "Norwe: Description",
 	"price": "Norwe: Price",
 	"terms-of-service":"Norwe: Agreements",
-	"i-have-read-and-accept": "Norwe: I have read and agreed to the following agreements as listed below",
+	"i-have-read-and-accept": "Norwe: I have read and agreed to the following agreements as listed below:",
 	"agreement": "Norwe: Agreement",
 	"url": "Norwe: URL",
 };

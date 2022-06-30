@@ -73,7 +73,7 @@ export default {
 	"description": "Swed: Description",
 	"price": "Swed: Price",
 	"terms-of-service":"Swed: Agreements",
-	"i-have-read-and-accept": "Swed: I have read and agreed to the following agreements as listed below",
+	"i-have-read-and-accept": "Swed: I have read and agreed to the following agreements as listed below:",
 	"agreement": "Swed: Agreement",
 	"url": "Swed: URL",
 };

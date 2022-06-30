@@ -66,7 +66,7 @@ export default {
 	"description": "Description",
 	"price": "Price",
 	"terms-of-service":"Agreements",
-	"i-have-read-and-accept": "I have read and agreed to the following agreements as listed below",
+	"i-have-read-and-accept": "I have read and agreed to the following agreements as listed below:",
 	"agreement": "Agreement",
 	"url": "URL",
 };
